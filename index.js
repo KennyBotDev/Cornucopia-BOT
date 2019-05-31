@@ -18,6 +18,31 @@ const path = require("path");
 const client = new Discord.Client();
 
 // client is an instance of Discord.Client
+client.on('guildMemberAdd', member => {
+  const welcEmbed = new Discord.RichEmbed()
+      .setColor('BLACK')
+      .setTitle(`Welcome System`)
+      .setAuthor(`Moderation`, client.user.avatarURL)
+      .setDescription(`Welcome to ${message.guild.name}! \n We hope you enjoy your stay here. \n Read the rules below,please!`)
+      .addBlankField()
+      .addField(`➧ Keep it Clean ➧`, `\n  No Insults or Inappropriate slurs.`)
+      .addBlankField()
+      .addField(`\n ➧ Links ➧`, `\n Discord server links are NOT allowed in this server , however links to videos / websites are allowed as long as they are appropriate for viewers and as long as the websites are secure.`)
+      .addBlankField()
+      .addField(`\n ➧ Respect The Community ➧`, `\n No leaking any sort of personal information about others. This includes numbers, cities, addresses, full names etc. `)
+      .addBlankField()
+      .addField(`\n ➧ Evading ➧`, `\n Going on other accounts to avoid a punishment will lead to a warn and possible ban on both accounts`)
+      .addBlankField()
+      .addField(`\n ➧ Harassment ➧`, `\n Harassment or bullying of any kind will not be tolerated and will result in a warning or ban, depending on the scenario.`)
+      .addBlankField()
+      .addField(`\n ➧ Follow the Staff ➧`, `\n Listen and obey to what the Staff team desire. They’re here to help! If you think they’re doing something wrong, please contact an me.`)
+      .addBlankField()
+      .addField(`\n ➧ Touchy Topics ➧`, `\n Actively discussing sensitive topics is not allowed in the Discord. Promoting topics such as suicide, will lead to an instant ban. We respect these situations, however, they are not appropriate for the discord, and we ask you to use DM’s.`)
+      .addBlankField()
+      .addField(`\n ➧ Usernames and Profile Pictures ➧`, `\n An Inappropriate discord username or pfp will lead to a warning Staff will tell you when to change them if required.`)
+      member.send(welcEmbed)
+  });
+
 client.on("message", (message) => {
   if(message.content == "server info?"){ // Check if content of message is "!ping"  
   
